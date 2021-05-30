@@ -4,7 +4,7 @@ const searchSongs = () => {
     fetch(url)
         .then(res => res.json())
         .then(data => displaySongs(data.data))
-        .catch(error => displayError('Someting Went Wrong. Please try again Later!!!'))
+        // .catch(error => displayError('Someting Went Wrong. Please try again Later!!!'))
 }
 
 const displaySongs = songs => {
@@ -36,7 +36,7 @@ const getLyric = (artist, title) => {
     fetch(url)
     .then(res => res.json())
     .then(data => displayLyrics(data.lyrics))
-    .catch(error => displayError('Someting Went Wrong. Please try again Later!!!'))
+    // .catch(error => displayError('Someting Went Wrong. Please try again Later!!!'))
 }
 
 const displayLyrics = lyrics => {
@@ -45,7 +45,7 @@ const displayLyrics = lyrics => {
     lyricsDiv.innerText = lyrics;
 }
 
-const displayError = error => {
-    const errorTag = document.getElementById('error-message');
-    errorTag.innerHTML = error;
-}
+// const displayError = error => {
+//     const errorTag = document.getElementById('error-message');
+//     errorTag.innerHTML = error;
+// }
