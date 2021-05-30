@@ -1,12 +1,10 @@
 const searchSongs = () => {
     const searchText = document.getElementById('search-field').value;
-    const url = `https://api.lyrics.ovh/suggest/:${searchText}`
+    const url = `https://api.lyrics.ovh/suggest/${searchText}`
     fetch(url)
         .then(res => res.json())
         .then(data => displaySongs(data.data))
-        // .catch(error => displayError('Someting Went Wrong. Please try again Later!!!'))
 }
-
 const displaySongs = songs => {
     const songContainer = document.getElementById('song-container');
     songContainer.innerHTML = '';
@@ -17,7 +15,7 @@ const displaySongs = songs => {
         <div class ="col-md-9">
             <h3 class = "lyrics-name">${song.title}</h3>
             <p class="author lead">Album By <span>${song.artist.name}</span></p>
-            <audio controls>
+            <audio controls class="col-sm-4 col-sm-offset-4">
             <source src="${song.preview}" type="audio/mpeg">
             </audio>
         </div>
@@ -34,8 +32,8 @@ const displaySongs = songs => {
 const getLyric = (artist, title) => {
     const url = `https://api.lyrics.ovh/v1/${artist}/${title}`;
     fetch(url)
-    .then(res => res.json())
-    .then(data => displayLyrics(data.lyrics))
+        .then(res => res.json())
+        .then(data => displayLyrics(data.lyrics))
     // .catch(error => displayError('Someting Went Wrong. Please try again Later!!!'))
 }
 
